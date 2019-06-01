@@ -54,27 +54,21 @@ In this stack we have AutoScalingGroup with LaunchConfiguration file. AutoScalin
 ### Tips:
 #### 1.
 use this in to post mathod in apiGateway
-
-{ \n
-  "customersId":"Any Number",\n
-  "Name":"Any value",\n
-  "Location":"Any location" \n
-}\n
-
+~~
+{ "customersId":"Any Number","Name":"Any value","Location":"Any location" }
+~~
 
 #### 2.
 use this in to Delete mathod in apiGateway
 ~~
-{
-  "customerId":"Any Number"}
+{"customerId":"Any Number"}
 ~~
 
 
 #### 3.
 use this in to Get mathod in apiGateway
 ~~
-{
-  "customerId":"Any Number"}
+{"customerId":"Any Number"}
 ~~
 
 
