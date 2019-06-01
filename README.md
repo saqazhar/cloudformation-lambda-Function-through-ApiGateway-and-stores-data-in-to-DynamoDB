@@ -2,7 +2,7 @@
 # Lambda function through ApiGateway and stores data in to DynamoDB.
 
 ### Description:
-Lambda function through ApiGateway and stores data in to DynamoDB.
+Trigger Lambda function through ApiGateway and stores data in to DynamoDB.
 
 #### steps:
 1. dynamodb.yaml
