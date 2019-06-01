@@ -17,7 +17,7 @@ Upload dynamodb.yaml Stack.
 ~~~
 
 **Description:**
-This stack create dynamoDB table with name 'customers' and create IAM role with LambdaFullAccess and apigatewayFullAccess.
+This stack create dynamoDB table with name 'customers' and create IAM role with LambdaFullAccess and apiGatewayFullAccess.
 
 
 
