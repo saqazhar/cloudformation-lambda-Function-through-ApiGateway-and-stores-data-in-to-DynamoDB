@@ -2,7 +2,7 @@
 # Lambda function through ApiGateway and stores data in to DynamoDB.
 
 ### Description:
-Trigger Lambda function through ApiGateway and stores data in to DynamoDB.
+Trigger Lambda function through ApiGateway and stores data in to DynamoDB. You need to follow these below steps.
 
 #### steps:
 1. dynamodb.yaml
@@ -48,3 +48,33 @@ Upload apiGatewayWithLambda.yaml Stack
 
 **Description:**
 In this stack we have AutoScalingGroup with LaunchConfiguration file. AutoScalingGroup create public instances in public subnets and private instance in private subnet as per thier availability zones. Then we have Load Balancer which balance load between instances.
+
+
+
+### Tips:
+#### 1.
+use this in to post mathod in apiGateway
+~~
+{
+  "customersId":"Any Number",
+  "Name":"Any value",
+  "Location":"Any location"
+}
+~~
+
+#### 2.
+use this in to Delete mathod in apiGateway
+~~
+{
+  "customerId":"Any Number"}
+~~
+
+
+#### 3.
+use this in to Get mathod in apiGateway
+~~
+{
+  "customerId":"Any Number"}
+~~
+
+
