@@ -1,0 +1,25 @@
+
+
+Resources:
+  MyLambdaFunction:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      Handler: "index.lambda_handler"
+      Role:  !ImportValue IamRoleForLambda
+      Code:
+        ZipFile: |
+          import boto3
+          dynamodb = boto3.resource('dynamodb')
+          table = dynamodb.Table('customers')
+          def lambda_handler(event, context):
+              custId = event['custId']
+              response = table.delete_item (Key={
+                'customersId':custId})
+              return str ("DELETED")
+      Runtime: "python3.6"
+      Timeout: "25"
+Outputs:
+  lambdaArn:
+    Value: !GetAtt "MyLambdaFunction.Arn"
+    Export: 
+      Name: !Sub "DeleteLambdaArn"

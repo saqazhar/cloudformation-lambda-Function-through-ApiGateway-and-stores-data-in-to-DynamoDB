@@ -1,0 +1,39 @@
+Resources: 
+  myDynamoDBTable: 
+    Type: AWS::DynamoDB::Table
+    Properties: 
+      TableName: "customers"      
+      AttributeDefinitions: 
+        - 
+          AttributeName: "customersId"
+          AttributeType: "S"
+      KeySchema: 
+        - 
+          AttributeName: "customersId"
+          KeyType: "HASH"
+      ProvisionedThroughput: 
+        ReadCapacityUnits: "1"
+        WriteCapacityUnits: "1"
+  lambdaIAMRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      ManagedPolicyArns: 
+        -  arn:aws:iam::aws:policy/AWSLambdaFullAccess
+        -  arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Action:
+              - "sts:AssumeRole"
+            Effect: "Allow"
+            Principal:
+              Service:
+                - "lambda.amazonaws.com"
+Outputs:
+  IamRole:
+    Value: !GetAtt "lambdaIAMRole.Arn"
+    Export:
+      Name: !Sub "IamRoleForLambda"
+
+
+

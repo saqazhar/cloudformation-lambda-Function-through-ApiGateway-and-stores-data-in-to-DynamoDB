@@ -1,0 +1,21 @@
+Resources:
+  MyLambdaFunction:
+    Type: "AWS::Lambda::Function"
+    Properties:
+      Handler: "index.lambda_handler"
+      Role:  !ImportValue IamRoleForLambda
+      Code:
+        ZipFile: |
+           import boto3
+           dynamodb = boto3.resource('dynamodb')
+           table = dynamodb.Table('customers')
+           def lambda_handler(event, context):
+              table.put_item(Item = event)
+              return str (event)
+      Runtime: "python3.6"
+      Timeout: "25"
+Outputs:
+  lambdaArn:
+    Value: !GetAtt "MyLambdaFunction.Arn"
+    Export:
+      Name: !Sub "PutLambdaArn"      
