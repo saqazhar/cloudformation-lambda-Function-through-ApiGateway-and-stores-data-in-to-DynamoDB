@@ -4,7 +4,7 @@
 ### Description:
 Lambda function through ApiGateway and stores data in to DynamoDB.
 
-steps:
+#### steps:
 1. dynamodb.yaml
 2. PostlambdaFunc.yaml
 3. GetLambdaFunc.yaml
